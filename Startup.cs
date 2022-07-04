@@ -13,7 +13,18 @@ namespace ConsoleToWebAPI
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if(env.IsDevelopment())
+            //run method
+            app.Run(async context =>
+            {
+                await context.Response.WriteAsync("Hello from Run()");
+            });
+
+            //app.Run(async context =>
+            //{
+            //    await context.Response.WriteAsync("Hello from Run2()");
+            //});
+
+            if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
