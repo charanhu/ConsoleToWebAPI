@@ -7,7 +7,7 @@ namespace ConsoleToWebAPI.Controllers
     public class TestControllers : ControllerBase
     {
 
-        //adding controllers
+        //adding resorces
         public string Get()
         {
             return "Hello from GET";
