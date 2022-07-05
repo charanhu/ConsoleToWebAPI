@@ -28,14 +28,14 @@ namespace ConsoleToWebAPI
             //'UseExtensions.Use(IApplicationBuilder, Func<HttpContext, RequestDelegate, Task>)'
             //To resolve the error, use app.Run instead of app.Use.
 
-            app.Use(async (context, next) =>
-            {
-                await context.Response.WriteAsync("Hello from Use()1- 1 \n");
-                await next();
-                //await context.Response.WriteAsync("Hello from Use()1- 2 \n");
-            });
+            //app.Use(async (context, next) =>
+            //{
+            //    await context.Response.WriteAsync("Hello from Use()1- 1 \n");
+            //    await next();
+            //    //await context.Response.WriteAsync("Hello from Use()1- 2 \n");
+            //});
 
-            app.UseMiddleware<CustomMiddleware1>();
+            //app.UseMiddleware<CustomMiddleware1>();
             //app.Use(async (context, next) =>
             //{
 
@@ -44,10 +44,10 @@ namespace ConsoleToWebAPI
             //    await context.Response.WriteAsync("Hello from Use()2- 2 \n");
             //});
 
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync("Request Completed \n");
-            });
+            //app.Run(async (context) =>
+            //{
+            //    await context.Response.WriteAsync("Request Completed \n");
+            //});
 
             //app.Run(async context =>
             //{
@@ -58,7 +58,9 @@ namespace ConsoleToWebAPI
             {
                 app.UseDeveloperExceptionPage();
             }
+
             app.UseRouting();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();  //Inject WebAPI
