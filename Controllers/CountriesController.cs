@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using ConsoleToWebAPI.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ConsoleToWebAPI.Controllers
@@ -17,6 +18,12 @@ namespace ConsoleToWebAPI.Controllers
         public IActionResult SearchCountries([ModelBinder(typeof(CustomBinder))] string[] countries)
         {
             return Ok(countries);
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult CountryDetails([ModelBinder(Name ="Id")]CountryModel country)
+        {
+            return Ok(country);
         }
     }
 }
